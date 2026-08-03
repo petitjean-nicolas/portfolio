@@ -8,13 +8,17 @@
         :root {
             --bg-color: #fdfdfd;
             --card-bg: #ffffff;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
-            --text-muted: #6b7280;
-            --arizona-blue: #0047FF;
-            --arizona-blue-hover: #0037cc;
-            --arizona-blue-light: rgba(0, 71, 255, 0.08);
-            --border-color: #e5e7eb;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            
+            /* Arizona Marketing Director Dark Blue Palette */
+            --arizona-dark-blue: #0f172a;
+            --arizona-accent-blue: #1e293b;
+            --arizona-light-bg: #f8fafc;
+            --arizona-highlight: #2563eb;
+            
+            --border-color: #e2e8f0;
             --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -56,7 +60,7 @@
             height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--arizona-blue);
+            border: 2px solid var(--arizona-dark-blue);
         }
 
         .profile-name {
@@ -70,7 +74,7 @@
         .profile-title {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--arizona-blue);
+            color: var(--arizona-highlight);
             margin-bottom: 1rem;
         }
 
@@ -80,21 +84,32 @@
             margin-bottom: 1.5rem;
         }
 
-        .tag-list {
+        /* Brand Logos Container */
+        .logo-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 0.75rem;
             margin-bottom: 2rem;
         }
 
-        .tag {
-            background-color: var(--arizona-blue-light);
-            color: var(--arizona-blue);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.35rem 0.8rem;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 71, 255, 0.15);
+        .logo-badge {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .logo-badge img {
+            max-height: 22px;
+            max-width: 80px;
+            width: auto;
+            object-fit: contain;
         }
 
         .cta-button {
@@ -102,7 +117,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            background-color: var(--arizona-blue);
+            background-color: var(--arizona-dark-blue);
             color: #ffffff;
             font-weight: 600;
             font-size: 0.95rem;
@@ -110,11 +125,11 @@
             border-radius: 8px;
             text-decoration: none;
             transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 12px rgba(0, 71, 255, 0.25);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
         }
 
         .cta-button:hover {
-            background-color: var(--arizona-blue-hover);
+            background-color: #1e293b;
             transform: translateY(-1px);
         }
 
@@ -125,57 +140,48 @@
             gap: 3rem;
         }
 
-        .section-title {
-            font-size: 0.9rem;
+        .section-header-banner {
+            background-color: var(--arizona-dark-blue);
+            color: #ffffff;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--arizona-blue);
             margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .section-title::before {
-            content: "";
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--arizona-blue);
-            border-radius: 50%;
         }
 
         /* Metrics Grid */
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
 
         .metric-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-top: 3px solid var(--arizona-blue);
+            background: var(--arizona-dark-blue);
+            color: #ffffff;
             border-radius: 10px;
             padding: 1.25rem;
-            text-align: center;
+            text-align: left;
         }
 
         .metric-value {
-            font-size: 1.85rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            color: var(--arizona-blue);
+            color: #ffffff;
             margin-bottom: 0.25rem;
         }
 
         .metric-label {
-            font-size: 0.825rem;
-            color: var(--text-secondary);
+            font-size: 0.85rem;
+            color: #94a3b8;
             font-weight: 500;
         }
 
-        /* Work / Achievements Cards */
+        /* Work / Projects Cards */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -195,8 +201,8 @@
 
         .work-card:hover {
             transform: translateY(-3px);
-            border-color: var(--arizona-blue);
-            box-shadow: 0 4px 12px rgba(0, 71, 255, 0.08);
+            border-color: var(--arizona-highlight);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .work-card p {
@@ -207,7 +213,7 @@
         }
 
         .work-card a {
-            color: var(--arizona-blue);
+            color: var(--arizona-highlight);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -221,17 +227,22 @@
         }
 
         .about-card {
-            background: var(--card-bg);
+            background: var(--arizona-light-bg);
             border: 1px solid var(--border-color);
-            border-left: 4px solid var(--arizona-blue);
+            border-left: 4px solid var(--arizona-dark-blue);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1.75rem;
         }
 
-        .about-text {
-            font-size: 1.05rem;
+        .about-text p {
+            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
         }
 
         /* Responsive Layout */
@@ -267,11 +278,20 @@
                 Building global payment products, scaling high-performing teams, and driving board & regulatory approvals.
             </p>
 
-            <div class="tag-list">
-                <span class="tag">ISO 20022</span>
-                <span class="tag">Swift</span>
-                <span class="tag">BNP Paribas</span>
-                <span class="tag">INSEAD EMBA</span>
+            <!-- Brand Logos -->
+            <div class="logo-list">
+                <div class="logo-badge" title="INSEAD">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/INSEAD_logo.svg" alt="INSEAD">
+                </div>
+                <div class="logo-badge" title="BNP Paribas">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/BNP_Paribas_logo.svg" alt="BNP Paribas">
+                </div>
+                <div class="logo-badge" title="Swift">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/SWIFT_logo.svg" alt="Swift">
+                </div>
+                <div class="logo-badge" title="ISO 20022">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/ISO_Logo_%28Red%29.svg" alt="ISO 20022">
+                </div>
             </div>
 
             <a href="https://linkedin.com/in/petitjeannicolas/" target="_blank" rel="noopener" class="cta-button">
@@ -281,28 +301,32 @@
 
         <!-- Main Content Column -->
         <main class="main-content">
-            <!-- Highlights / Metrics -->
+            <!-- Career Highlights -->
             <section>
-                <div class="section-title">Career Highlights</div>
+                <div class="section-header-banner">Career Highlights</div>
                 <div class="metrics-grid">
                     <div class="metric-card">
-                        <div class="metric-value">22+</div>
-                        <div class="metric-label">Years Leadership</div>
+                        <div class="metric-value">22 Years</div>
+                        <div class="metric-label">Industry Leadership Experience</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">1st</div>
-                        <div class="metric-label">ISO 20022 API Standard</div>
+                        <div class="metric-value">Banking & Telcos</div>
+                        <div class="metric-label">Primary Sector Expertise</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">Global</div>
-                        <div class="metric-label">Product Scale</div>
+                        <div class="metric-value">1M+ Monthly</div>
+                        <div class="metric-label">Transactions Scaled</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">ISO 20022</div>
+                        <div class="metric-label">Standards Contributor & Author</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Key Work & Portfolio -->
+            <!-- Key Projects -->
             <section>
-                <div class="section-title">Key Projects & Standards</div>
+                <div class="section-header-banner">Key Projects</div>
                 <div class="cards-grid">
                     <div class="work-card">
                         <p>Co-authored the first API standard published in ISO 20022.</p>
@@ -331,13 +355,23 @@
                 </div>
             </section>
 
-            <!-- Executive Summary Section -->
+            <!-- Executive Overview Section -->
             <section>
-                <div class="section-title">Executive Overview</div>
+                <div class="section-header-banner">Executive Overview</div>
                 <div class="about-card">
-                    <p class="about-text">
-                        An INSEAD Global Executive MBA graduate, Nicolas is seeking a VP Product role where he can bring 22 years of standards leadership, data-driven decision making, team-building, and board-level influence to a global payments platform.
-                    </p>
+                    <div class="about-text">
+                        <p>At Swift, as Senior Product Manager, he provided the vision and the strategic roadmap behind the Pre-validation API product. He co-created this product with Tier-1 Banks, Central Banks, Payment Networks, and fintechs, and scaled it from zero to over 1 million monthly transactions and 200 customers in 3 years.</p>
+                        
+                        <p>His expertise spans cross-border payments, open banking, real-time/instant payments (SEPA Instant, Faster Payments, Korean HOFINET), and ISO 20022 messaging. He represented Swift in the European Payment Council's Verification of Payee work block and contributed to the publication of the first API standard in ISO 20022.</p>
+                        
+                        <p>Cross-functional partnership with Engineering, Architecture, Cybersecurity, Risk & Compliance, Commercial teams, and Executive Leadership allowed him to deliver products that are not only technically sound, but also secure and compliant by design. He authored the board paper that secured executive sign-off for a sensitive data privacy initiative, and met directly with Swift's customer representatives to secure stakeholder alignment ahead of board review.</p>
+                        
+                        <p>At BNP Paribas, Nicolas led and mentored a team of 10 Product Managers overseeing a €10M annual portfolio spanning SEPA, PSD2, SEPA Instant, and non-European payment schemes across 52 countries. He created a customer centricity focus and made sure customer insights were used in everyday decisions.</p>
+                        
+                        <p>He also ran a change program in a 150-person product organization at BNP Paribas, using Kotter's 8-Stage Framework, to reduce time to market and improve alignment between product and customer expectation. In parallel, he audited his department product portfolio to remove non-performing products and cut annual costs by over €500K.</p>
+                        
+                        <p>An INSEAD Global Executive MBA graduate with an MSc in Electrical Engineering, Nicolas is now seeking a VP Product role where he can bring 22 years of standards leadership, data-driven decision making, team-building, and board-level influence to a global payments platform.</p>
+                    </div>
                 </div>
             </section>
         </main>
