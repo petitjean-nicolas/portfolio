@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Petitjean - Executive Profile</title>
+    <title>Nicolas Petitjean | Executive Profile</title>
     <style>
         :root {
-            --bg-color: #f8fafc;
+            --bg-color: #fdfdfd;
             --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --accent-blue: #2563eb;
-            --accent-hover: #1d4ed8;
-            --border-color: #e2e8f0;
-            --card-hover-border: #cbd5e1;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --accent-color: #2563eb;
+            --border-color: #e5e7eb;
+            --chip-bg: #f3f4f6;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         * {
@@ -25,251 +24,297 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: var(--font-sans);
             background-color: var(--bg-color);
-            color: var(--text-main);
+            color: var(--text-primary);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1.5rem;
         }
 
-        .container {
-            max-width: 850px;
-            width: 100%;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 3.5rem;
-            box-shadow: var(--shadow-md);
+        .layout-wrapper {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 3.5rem;
         }
 
-        /* Profile Header Layout */
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2.5rem;
-            margin-bottom: 2rem;
+        /* Left Column: Sidebar Profile */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+            align-self: start;
+        }
+
+        .avatar-container {
+            margin-bottom: 1.5rem;
         }
 
         .avatar {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent-blue);
-            box-shadow: var(--shadow-sm);
-            flex-shrink: 0;
-        }
-
-        .profile-info h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: -0.025em;
-            margin-bottom: 0.35rem;
-        }
-
-        .profile-info .title {
-            font-size: 1.1rem;
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        /* Summary Sections */
-        .summary-top {
-            font-size: 1.15rem;
-            color: var(--text-main);
-            font-weight: 500;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-        }
-
-        .summary-bottom {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Achievements Section */
-        h2 {
-            font-size: 1.35rem;
-            color: var(--text-main);
-            margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        h2::before {
-            content: "";
-            display: inline-block;
-            width: 6px;
-            height: 18px;
-            background-color: var(--accent-blue);
-            border-radius: 3px;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .achievement-card {
-            background: #ffffff;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.25rem;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
-        .achievement-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--card-hover-border);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        .profile-name {
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
         }
 
-        .achievement-card p {
-            color: var(--text-main);
-            font-size: 0.95rem;
-            margin-bottom: 0.85rem;
-            font-weight: 450;
-        }
-
-        .achievement-card a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-size: 0.875rem;
+        .profile-title {
+            font-size: 1rem;
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
         }
 
-        .achievement-card a:hover {
-            text-decoration: underline;
+        .profile-bio {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
         }
 
-        /* Actions / CTA */
-        .cta-container {
+        .tag-list {
             display: flex;
-            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background-color: var(--chip-bg);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background-color: var(--accent-blue);
+            justify-content: center;
+            width: 100%;
+            background-color: var(--text-primary);
             color: #ffffff;
             font-weight: 600;
-            padding: 0.85rem 1.75rem;
+            font-size: 0.95rem;
+            padding: 0.85rem 1.25rem;
             border-radius: 8px;
             text-decoration: none;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            transition: opacity 0.2s ease;
         }
 
         .cta-button:hover {
-            background-color: var(--accent-hover);
-            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+            opacity: 0.9;
         }
 
-        /* Responsive Design */
-        @media (max-width: 640px) {
-            .container {
-                padding: 2rem 1.5rem;
-            }
+        /* Right Column: Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
 
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.25rem;
-            }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
 
-            .achievements-grid {
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.825rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Work / Achievements Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        .work-card p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+        }
+
+        .work-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .work-card a:hover {
+            text-decoration: underline;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 850px) {
+            .layout-wrapper {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
 
-            .cta-container {
-                justify-content: center;
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <main class="container">
-        <!-- Header with Photo -->
-        <header class="profile-header">
-            <img src="profile.jpg" alt="Nicolas Petitjean" class="avatar">
-            <div class="profile-info">
-                <h1>Nicolas Petitjean</h1>
-                <div class="title">Payments Product Executive</div>
+    <div class="layout-wrapper">
+        <!-- Sidebar Profile -->
+        <aside class="sidebar">
+            <div class="avatar-container">
+                <img src="profile.jpg" alt="Nicolas Petitjean" class="avatar">
             </div>
-        </header>
+            <h1 class="profile-name">Nicolas Petitjean</h1>
+            <div class="profile-title">Payments Product Executive</div>
+            
+            <p class="profile-bio">
+                Building global payment products, scaling high-performing teams, and driving board & regulatory approvals.
+            </p>
 
-        <!-- Lead Sentence -->
-        <section class="summary-top">
-            <p>Nicolas Petitjean builds payments products, the teams that scale them, and the board and regulatory relationships that get them approved.</p>
-        </section>
-
-        <!-- Key Achievements Grid -->
-        <section>
-            <h2>Key Achievements</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <p>Co-authored the first API standard published in ISO 20022.</p>
-                    <a href="https://iso20022.org" target="_blank" rel="noopener">iso20022.org &rarr;</a>
-                </div>
-                <div class="achievement-card">
-                    <p>Built and scaled Swift's Payment Pre-validation service.</p>
-                    <a href="https://swift.com" target="_blank" rel="noopener">swift.com &rarr;</a>
-                </div>
-                <div class="achievement-card">
-                    <p>Applied pseudonymised account analytics within Payment Pre-validation.</p>
-                    <a href="https://swift.com" target="_blank" rel="noopener">swift.com &rarr;</a>
-                </div>
-                <div class="achievement-card">
-                    <p>Built the incoming payment tracker (BeneTracker) in BNP Paribas Connexis Cash.</p>
-                    <a href="https://cashmanagement.bnpparibas.com" target="_blank" rel="noopener">cashmanagement.bnpparibas.com &rarr;</a>
-                </div>
-                <div class="achievement-card">
-                    <p>Launch of BNP Paribas Connexis Cash Mobile App.</p>
-                    <a href="https://apple.com" target="_blank" rel="noopener">apple.com &rarr;</a>
-                </div>
-                <div class="achievement-card">
-                    <p>Adapted BNP Paribas Connexis Cash to South Korean market practice.</p>
-                    <a href="https://bnpparibas.com" target="_blank" rel="noopener">bnpparibas.com &rarr;</a>
-                </div>
+            <div class="tag-list">
+                <span class="tag">ISO 20022</span>
+                <span class="tag">Swift</span>
+                <span class="tag">BNP Paribas</span>
+                <span class="tag">INSEAD EMBA</span>
             </div>
-        </section>
 
-        <!-- Executive Detail Paragraph -->
-        <section class="summary-bottom">
-            <p>An INSEAD Global Executive MBA graduate, Nicolas is now seeking a VP Product role where he can bring 22 years of standards leadership, data-driven decision making, team-building, and board-level influence to a global payments platform.</p>
-        </section>
-
-        <!-- Action Button -->
-        <section class="cta-container">
             <a href="https://linkedin.com/in/petitjeannicolas/" target="_blank" rel="noopener" class="cta-button">
                 Connect on LinkedIn
             </a>
-        </section>
-    </main>
+        </aside>
+
+        <!-- Main Content Column -->
+        <main class="main-content">
+            <!-- Highlights / Metrics -->
+            <section>
+                <div class="section-title">Career Highlights</div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">22+</div>
+                        <div class="metric-label">Years Leadership</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">1st</div>
+                        <div class="metric-label">ISO 20022 API Standard</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">Global</div>
+                        <div class="metric-label">Product Scale</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Work & Portfolio -->
+            <section>
+                <div class="section-title">Key Projects & Standards</div>
+                <div class="cards-grid">
+                    <div class="work-card">
+                        <p>Co-authored the first API standard published in ISO 20022.</p>
+                        <a href="https://iso20022.org" target="_blank" rel="noopener">iso20022.org &rarr;</a>
+                    </div>
+                    <div class="work-card">
+                        <p>Built and scaled Swift's Payment Pre-validation service.</p>
+                        <a href="https://swift.com" target="_blank" rel="noopener">swift.com &rarr;</a>
+                    </div>
+                    <div class="work-card">
+                        <p>Applied pseudonymised account analytics within Payment Pre-validation.</p>
+                        <a href="https://swift.com" target="_blank" rel="noopener">swift.com &rarr;</a>
+                    </div>
+                    <div class="work-card">
+                        <p>Built the incoming payment tracker (BeneTracker) in BNP Paribas Connexis Cash.</p>
+                        <a href="https://cashmanagement.bnpparibas.com" target="_blank" rel="noopener">cashmanagement.bnpparibas.com &rarr;</a>
+                    </div>
+                    <div class="work-card">
+                        <p>Launched the BNP Paribas Connexis Cash Mobile App.</p>
+                        <a href="https://apple.com" target="_blank" rel="noopener">apple.com &rarr;</a>
+                    </div>
+                    <div class="work-card">
+                        <p>Adapted BNP Paribas Connexis Cash to South Korean market practice.</p>
+                        <a href="https://bnpparibas.com" target="_blank" rel="noopener">bnpparibas.com &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Executive Summary Section -->
+            <section>
+                <div class="section-title">Executive Overview</div>
+                <p class="about-text">
+                    An INSEAD Global Executive MBA graduate, Nicolas is seeking a VP Product role where he can bring 22 years of standards leadership, data-driven decision making, team-building, and board-level influence to a global payments platform.
+                </p>
+            </section>
+        </main>
+    </div>
 
 </body>
 </html>
