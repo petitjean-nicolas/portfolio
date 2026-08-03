@@ -12,11 +12,10 @@
             --text-secondary: #334155;
             --text-muted: #64748b;
             
-            /* Arizona Marketing Director Dark Blue Palette */
-            --arizona-dark-blue: #0f172a;
-            --arizona-accent-blue: #1e293b;
-            --arizona-light-bg: #f8fafc;
-            --arizona-highlight: #2563eb;
+            /* Custom Brand Color */
+            --brand-blue: #405B8E;
+            --brand-blue-hover: #334972;
+            --brand-light-bg: #f4f6f9;
             
             --border-color: #e2e8f0;
             --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -60,7 +59,7 @@
             height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--arizona-dark-blue);
+            border: 2px solid var(--brand-blue);
         }
 
         .profile-name {
@@ -74,42 +73,14 @@
         .profile-title {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--arizona-highlight);
+            color: var(--brand-blue);
             margin-bottom: 1rem;
         }
 
         .profile-bio {
             font-size: 0.95rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Brand Logos Container */
-        .logo-list {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.75rem;
             margin-bottom: 2rem;
-        }
-
-        .logo-badge {
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            padding: 0.4rem 0.75rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 38px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-
-        .logo-badge img {
-            max-height: 22px;
-            max-width: 80px;
-            width: auto;
-            object-fit: contain;
         }
 
         .cta-button {
@@ -117,7 +88,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            background-color: var(--arizona-dark-blue);
+            background-color: var(--brand-blue);
             color: #ffffff;
             font-weight: 600;
             font-size: 0.95rem;
@@ -125,11 +96,11 @@
             border-radius: 8px;
             text-decoration: none;
             transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+            box-shadow: 0 4px 12px rgba(64, 91, 142, 0.2);
         }
 
         .cta-button:hover {
-            background-color: #1e293b;
+            background-color: var(--brand-blue-hover);
             transform: translateY(-1px);
         }
 
@@ -141,7 +112,7 @@
         }
 
         .section-header-banner {
-            background-color: var(--arizona-dark-blue);
+            background-color: var(--brand-blue);
             color: #ffffff;
             padding: 0.6rem 1rem;
             border-radius: 6px;
@@ -161,7 +132,7 @@
         }
 
         .metric-card {
-            background: var(--arizona-dark-blue);
+            background: var(--brand-blue);
             color: #ffffff;
             border-radius: 10px;
             padding: 1.25rem;
@@ -177,7 +148,7 @@
 
         .metric-label {
             font-size: 0.85rem;
-            color: #94a3b8;
+            color: #e2e8f0;
             font-weight: 500;
         }
 
@@ -201,8 +172,8 @@
 
         .work-card:hover {
             transform: translateY(-3px);
-            border-color: var(--arizona-highlight);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-color: var(--brand-blue);
+            box-shadow: 0 4px 12px rgba(64, 91, 142, 0.1);
         }
 
         .work-card p {
@@ -213,7 +184,7 @@
         }
 
         .work-card a {
-            color: var(--arizona-highlight);
+            color: var(--brand-blue);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -227,9 +198,9 @@
         }
 
         .about-card {
-            background: var(--arizona-light-bg);
+            background: var(--brand-light-bg);
             border: 1px solid var(--border-color);
-            border-left: 4px solid var(--arizona-dark-blue);
+            border-left: 4px solid var(--brand-blue);
             border-radius: 8px;
             padding: 1.75rem;
         }
@@ -277,22 +248,6 @@
             <p class="profile-bio">
                 Building global payment products, scaling high-performing teams, and driving board & regulatory approvals.
             </p>
-
-            <!-- Brand Logos -->
-            <div class="logo-list">
-                <div class="logo-badge" title="INSEAD">
-                    <img src="https://cdn.cookielaw.org/logos/7a9845b8-77d7-439f-b3cb-96870b6d948b/bf3f04ae-ec9c-45e2-ba7e-5cc31e5f5e84/afcbddc2-f8b4-4b36-833d-e9fdce9dffff/XL_png-roundel_digital_media.png" alt="INSEAD">
-                </div>
-                <div class="logo-badge" title="BNP Paribas">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/BNP_Paribas_logo.svg" alt="BNP Paribas">
-                </div>
-                <div class="logo-badge" title="Swift">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/SWIFT_logo.svg" alt="Swift">
-                </div>
-                <div class="logo-badge" title="ISO 20022">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/ISO_Logo_%28Red%29.svg" alt="ISO 20022">
-                </div>
-            </div>
 
             <a href="https://linkedin.com/in/petitjeannicolas/" target="_blank" rel="noopener" class="cta-button">
                 Connect on LinkedIn
